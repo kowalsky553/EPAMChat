@@ -1,0 +1,30 @@
+﻿@using TestChat.Models
+@model TestChat.Models.Chat
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>@Model.Name</h2>
+
+@foreach (var item in Model.Messages.OrderBy(m => m.MessageDateTime))
+{
+    <div align="right">
+        <div>
+            @item.Author.Name<br/>
+            @item.MessageDateTime.ToLongTimeString()
+        </div>
+        <div align="left">
+            @item.Text
+        </div>
+    </div>
+}
+
+<form>
+    <textarea id="MsgInput" placeholder="Введите сообщение..."></textarea>
+</form>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ChatId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

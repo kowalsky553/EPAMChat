@@ -1,0 +1,19 @@
+﻿@model TestChat.Models.Chat
+
+@{
+    ViewBag.Title = "Удалить чат";
+}
+
+<h2>Удалить чат</h2>
+
+<h3>Вы действительно хотите удалить чат @Model.Name?</h3>
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+    }
