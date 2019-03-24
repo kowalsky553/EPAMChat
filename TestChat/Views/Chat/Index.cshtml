@@ -1,0 +1,26 @@
+﻿@model IEnumerable<TestChat.Models.Chat>
+
+@{
+    ViewBag.Title = "Чаты";
+}
+
+<h2>Чаты</h2>
+
+<p>
+    @Html.ActionLink("Создать новый чат", "Create")
+</p>
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Войти в чат", "Chat", new { id=item.ChatId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ChatId })
+        </td>
+    </tr>
+}
+
+</table>

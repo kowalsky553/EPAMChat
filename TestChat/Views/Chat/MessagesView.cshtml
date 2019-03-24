@@ -1,0 +1,15 @@
+﻿@model TestChat.Models.Chat
+
+<h3>@Model.Name</h3>
+<table>
+@foreach (var message in @Model.Messages)
+{
+    <tr>
+        @message.Author <br />
+        @message.MessageDateTime.ToLongTimeString()
+    </tr>
+    <tr>
+        @message.Text
+    </tr>
+}
+ </table>
